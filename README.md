@@ -1,5 +1,5 @@
 # SpriTTer
-Twitter made with Spring FrameWork in Java
+Twitter Clone made with Spring FrameWork in Java using REST Services with AJAX jQuery
 
 ✓Register
 ✓Login
