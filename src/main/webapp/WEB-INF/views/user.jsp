@@ -38,8 +38,8 @@
 	<div id="registerForm" class="form">
 		<p>Register</p>
 
-		<input type="text" id="userName" class="input" placeholder="name" /> <input
-			type="password" id="userPassword" class="input"
+		<input type="text" id="userName" class="input" placeholder="name" />
+		<input type="password" id="userPassword" class="input"
 			placeholder="password" />
 		<p id="registerFormMessage"></p>
 
@@ -66,20 +66,21 @@
 		<p>Id : ${userId}</p>
 		<p>Password : ${userPassword}</p>
 
-		<button id="followButton" value="${userNameText}" class="btn">${followButton}</button>
-		<br>
-		
-		<h3>Following</h3>
-		
+		<c:if test="${followButton != null}">
+			<button id="followButton" value="${userNameText}" class="btn">${followButton}</button>
+			<br>
+		</c:if>
+		<h3>Follows</h3>
+
 		<c:forEach items="${userFriends}" var="friend">
 
-				<a href="user/${friend}">${friend}</a> 
-				
-			</c:forEach>
+			<a href="user/${friend}">${friend}</a>
+
+		</c:forEach>
 		<br>
-		
+
 		<h3>Messages</h3>
-		
+
 		<c:forEach items="${userMessages}" var="message">
 
 			<textarea rows="4" cols="50" readonly> ${message.text} </textarea>
@@ -103,7 +104,7 @@
 	<%
 		} else {
 	%>
-	<p>Please login to see user info</p>
+
 	<%
 		}
 	%>

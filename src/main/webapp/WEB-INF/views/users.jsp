@@ -79,8 +79,7 @@
 	<table class="usersList">
 		<c:forEach items="${usersList}" var="map">
 			<tr>
-				<td>
-				<a href="http://localhost:8080/twitter/user/${map.key}">${map.key}</a>
+				<td><a href="http://localhost:8080/twitter/user/${map.key}">${map.key}</a>
 				</td>
 			</tr>
 		</c:forEach>

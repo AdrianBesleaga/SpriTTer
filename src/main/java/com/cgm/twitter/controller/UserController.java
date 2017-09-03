@@ -49,13 +49,18 @@ public class UserController {
 			model.addObject("userPassword", user.getPassword());
 			model.addObject("userMessages", ArtefactBuilder.messages.get(name));
 			model.addObject("userFriends", ArtefactBuilder.friends.get(name));
-			String sessionUserName = request.getSession().getAttribute("userName").toString();
-			if (ArtefactBuilder.friends.containsKey(sessionUserName)
-					&& ArtefactBuilder.friends.get(sessionUserName).contains(name)) {
-				model.addObject("followButton", "UnFollow");
-			} else {
-				model.addObject("followButton", "Follow");
+
+			if (request.getSession().getAttribute("userName") != null) {
+
+				String sessionUserName = request.getSession().getAttribute("userName").toString();
+				if (ArtefactBuilder.friends.containsKey(sessionUserName)
+						&& ArtefactBuilder.friends.get(sessionUserName).contains(name)) {
+					model.addObject("followButton", "UnFollow");
+				} else {
+					model.addObject("followButton", "Follow");
+				}
 			}
+
 		} else {
 			model = new ModelAndView("user", "userNameText", null);
 		}
