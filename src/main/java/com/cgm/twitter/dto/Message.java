@@ -9,7 +9,8 @@ public class Message implements Serializable {
 	private String user;
 	private String date;
 
-	public Message() {}
+	public Message() {
+	}
 
 	public Message(String text, String user, String time) {
 		super();
@@ -20,35 +21,28 @@ public class Message implements Serializable {
 		Collections.reverse(ArtefactBuilder.messages.get(user));
 	}
 
-
 	public String getText() {
 		return text;
 	}
-
 
 	public void setText(String text) {
 		this.text = text;
 	}
 
-
 	public String getUser() {
 		return user;
 	}
-
 
 	public void setUser(String user) {
 		this.user = user;
 	}
 
-
 	public String getDate() {
 		return date;
 	}
-
 
 	public void setDate(String date) {
 		this.date = date;
 	}
 
-	
 }

@@ -19,7 +19,7 @@ public class FollowController {
 	@RequestMapping(value = "/follow", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
 	public @ResponseBody ServiceResponse follow(@RequestBody User user, HttpServletRequest request) {
 		System.out.println(user.getName());
-		String message = "Wrong Username";
+		String message;
 
 		String sessionUserName = request.getSession().getAttribute("userName").toString();
 

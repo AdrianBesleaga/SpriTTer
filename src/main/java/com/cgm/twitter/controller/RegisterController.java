@@ -17,7 +17,6 @@ public class RegisterController {
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
 	public @ResponseBody ServiceResponse register(@RequestBody User user, HttpServletRequest request) {
-		System.out.println(user.getName());
 		String message;
 		if (ArtefactBuilder.getUsers().containsKey(user.getName())) {
 			message = "UserName already taken";
@@ -28,7 +27,7 @@ public class RegisterController {
 
 			message = "Registered " + user.getName() + " with id  " + user.getId();
 		}
-		// String session = request.getSession().getAttribute("userName").toString();
+
 		return new ServiceResponse(message);
 	}
 

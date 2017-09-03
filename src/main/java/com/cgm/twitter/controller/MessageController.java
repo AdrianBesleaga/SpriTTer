@@ -20,7 +20,7 @@ public class MessageController {
 		if (message.getText().length() > 3) {
 			new Message(message.getText(), request.getSession().getAttribute("userName").toString(),
 					ArtefactBuilder.currentTime());
-		}else {
+		} else {
 			return new ServiceResponse("Post a longer message ! ");
 		}
 

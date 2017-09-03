@@ -30,10 +30,10 @@ public class ArtefactBuilder {
 			new Message("What a beautiful day !", "daniel", currentTime());
 		}
 	}
-	
+
 	public static String currentTime() {
 		DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		return(sdf.format(new Date()));
+		return (sdf.format(new Date()));
 	}
 
 	public static void addUser(User user) {
@@ -72,6 +72,5 @@ public class ArtefactBuilder {
 	public static Map<String, ArrayList<Message>> getMessages() {
 		return messages;
 	}
-
 
 }

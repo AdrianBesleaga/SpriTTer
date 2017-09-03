@@ -40,7 +40,6 @@ public class UserController {
 
 	@RequestMapping(value = "/user/{name}", method = RequestMethod.GET)
 	protected ModelAndView getUser(@PathVariable String name, HttpServletRequest request) throws Exception {
-		System.out.println(name);
 		ModelAndView model;
 
 		if (ArtefactBuilder.users.containsKey(name)) {
@@ -65,19 +64,18 @@ public class UserController {
 
 	@RequestMapping(value = "/user", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
 	public @ResponseBody ServiceResponse createArtist(@RequestBody User user) {
-		System.out.println(user.getName());
 		return new ServiceResponse(user.getName());
 	}
 
 	@RequestMapping(value = "/user", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
-	public ServiceResponse updateArtist(User user) {
-		System.out.println("Called update Artist service!" + user.getName());
+	public ServiceResponse updateUser(User user) {
+		System.out.println("Called update User service!" + user.getName());
 		return new ServiceResponse(user.getName());
 	}
 
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.DELETE)
-	public ServiceResponse deleteArtist(@RequestHeader("token") String token, @PathVariable Long id) {
-		System.out.println("Called delete Artist (" + id + ") service with token: " + token + " !");
+	public ServiceResponse deleteUser(@RequestHeader("token") String token, @PathVariable Long id) {
+		System.out.println("Called delete User (" + id + ") service with token: " + token + " !");
 		return new ServiceResponse("deleted : " + id);
 	}
 
