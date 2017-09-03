@@ -1,6 +1,14 @@
 # SpriTTer
 Twitter made with Spring FrameWork in Java
 
+✓Register
+✓Login
+✓Post a message
+✓Load message list
+✓Search for a specific user name
+✓Add user to friend list
+
+
 [http://localhost:8080/twitter/](http://localhost:8080/twitter/)
 
 My Website : [https://adrianweb.xyz/](https://adrianweb.xyz/)
