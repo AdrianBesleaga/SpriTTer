@@ -12,7 +12,7 @@ import com.cgm.twitter.dto.ArtefactBuilder;
 import com.cgm.twitter.dto.Message;
 import com.cgm.twitter.dto.ServiceResponse;
 
-@RestController
+@RestController 
 public class MessageController {
 	@RequestMapping(value = "/message", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
 	public @ResponseBody ServiceResponse message(@RequestBody Message message, HttpServletRequest request) {

@@ -31,7 +31,7 @@ $(document).ready(function(){
     	var userName = document.getElementById('userName').value;
     	var Data={"name": userName, "password": userPassword};
     	
-    	$.ajax({
+    	$.ajax({ 
     	    type: "POST",
     	    url: "http://localhost:8080/twitter/register",
     	    data: JSON.stringify(Data),
