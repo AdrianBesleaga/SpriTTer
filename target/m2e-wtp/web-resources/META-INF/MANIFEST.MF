@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: adrian.besleaga
 Build-Jdk: 1.8.0_101
+=======
+Built-By: Adrian
+Build-Jdk: 1.8.0_144
+>>>>>>> 42939f6e02d5efd3871cdb56a79a622fcf130a66
 Created-By: Maven Integration for Eclipse
 
