@@ -1,4 +1,4 @@
-package com.cgm.twitter.dto;
+package com.cgm.sripTTer.dto;
 
 import java.io.Serializable;
 import java.util.Collections;

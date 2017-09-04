@@ -8,13 +8,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css"
-	href="/twitter-rest/resources/static/style.css">
-<title>Twitter Page</title>
+	href="/twitter/resources/static/style.css">
+<title>Users Page</title>
+<base href="http://localhost:8080/twitter/">
 </head>
 <body>
 
-	<ul>
-		<li><a class="btn active" href="/twitter-rest/">Home</a></li>
+	<ul class="headerMenu">
+		<li><a class="btn active" href="/twitter/">Home</a></li>
 		<%
 			if (session.getAttribute("userName") == null) {
 		%>
@@ -25,9 +26,9 @@
 			if (session.getAttribute("userName") != null) {
 		%>
 		<li><a id="myProfile" class="btn"
-			href="/twitter-rest/user/<%=session.getAttribute("userName")%>">Profile</a></li>
-		<li><a id="usersLink" class="btn" href="/twitter-rest/users">Users</a></li>
-		<li><a id="logout" class="btn" href="/twitter-rest/logout">Logout</a></li>
+			href="/twitter/user/<%=session.getAttribute("userName")%>">Profile</a></li>
+		<li><a id="usersLink" class="btn" href="/twitter/users">Users</a></li>
+		<li><a id="logout" class="btn" href="/twitter/logout">Logout</a></li>
 		<%
 			}
 		%>
@@ -56,21 +57,38 @@
 		<button id="loginButton" class="btn">Login</button>
 	</div>
 
+
+	<div id="searchForm" class="form">
+		<p>Search</p>
+
+		<input type="text" id="userNameSearch" class="input"
+			placeholder="name" />
+		<p id="registerFormMessage"></p>
+
+		<button id="searchButton" class="btn">Search</button>
+	</div>
+
+
 	<%
 		if (session.getAttribute("userName") != null) {
 	%>
 
-	<c:forEach items="${usersList}" var="map">
-		<p>
-			<a href="http://localhost:8080/twitter-rest/user/${map.key}">${map.key}
-				Profile</a>
-		</p>
 
-	</c:forEach>
+
+
+	<table class="usersList">
+		<c:forEach items="${usersList}" var="map">
+			<tr>
+				<td><a href="http://localhost:8080/twitter/user/${map.key}">${map.key}</a>
+				</td>
+			</tr>
+		</c:forEach>
+	</table>
+
 	<%
 		} else {
 	%>
-	<p>Please login</p>
+	<h1>Please login</h1>
 	<%
 		}
 	%>
@@ -79,5 +97,5 @@
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/twitter-rest/resources/javascript/functions.js"></script>
+<script src="/twitter/resources/javascript/functions.js"></script>
 </html>

@@ -1,4 +1,4 @@
-package com.cgm.twitter.controller;
+package com.cgm.spriTTer.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.cgm.twitter.dto.ArtefactBuilder;
-import com.cgm.twitter.dto.ServiceResponse;
-import com.cgm.twitter.dto.User;
+import com.cgm.sripTTer.dto.ArtefactBuilder;
+import com.cgm.sripTTer.dto.ServiceResponse;
+import com.cgm.sripTTer.dto.User;
 
 @RestController
 public class LoginController {

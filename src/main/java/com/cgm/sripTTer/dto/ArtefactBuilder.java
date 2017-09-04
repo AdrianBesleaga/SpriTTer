@@ -1,4 +1,4 @@
-package com.cgm.twitter.dto;
+package com.cgm.sripTTer.dto;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
@@ -59,7 +59,7 @@ public class ArtefactBuilder {
 				sb.append(String.format("%02x", array[i]));
 			}
 			return sb.toString();
-		} catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
+		} catch (Exception e) {
 			return null;
 		}
 

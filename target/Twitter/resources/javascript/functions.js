@@ -31,9 +31,9 @@ $(document).ready(function(){
     	var userName = document.getElementById('userName').value;
     	var Data={"name": userName, "password": userPassword};
     	
-    	$.ajax({
+    	$.ajax({ 
     	    type: "POST",
-    	    url: "http://localhost:8080/twitter-rest/register",
+    	    url: "http://localhost:8080/twitter/register",
     	    data: JSON.stringify(Data),
     	    processData: false,
     	    cache: false,
@@ -59,7 +59,7 @@ $(document).ready(function(){
     	
     	$.ajax({
     	    type: "POST",
-    	    url: "http://localhost:8080/twitter-rest/login",
+    	    url: "http://localhost:8080/twitter/login",
     	    data: JSON.stringify(Data),
     	    processData: false,
     	    cache: false,
@@ -71,7 +71,7 @@ $(document).ready(function(){
     	    	$("#loginFormMessage").text(data.message);
 
     	    	if(data.message.indexOf("Logged In") !== -1){
-    	    		window.location.replace("http://localhost:8080/twitter-rest/user/"+userName);
+    	    		location.reload();
     	    	}
     	    	},
     	    failure: function(errMsg) {
@@ -81,13 +81,13 @@ $(document).ready(function(){
     });
     
     
-    $("#FollowButton").click(function(){
-    	var userName = document.getElementById('FollowButton').value;
+    $("#followButton").click(function(){
+    	var userName = document.getElementById('followButton').value;
     	var Data={"name": userName};
     	
     	$.ajax({
     	    type: "POST",
-    	    url: "http://localhost:8080/twitter-rest/follow",
+    	    url: "http://localhost:8080/twitter/follow",
     	    data: JSON.stringify(Data),
     	    processData: false,
     	    cache: false,
@@ -96,6 +96,7 @@ $(document).ready(function(){
     	    dataType: "json",
     	    success: function(data){
     	    	console.log(data);
+    	    	location.reload();
     	    	},
     	    failure: function(errMsg) {
     	        alert(errMsg);
@@ -105,33 +106,36 @@ $(document).ready(function(){
     
     
     
-    
-    
-    
-    
-    
     $("#messageButton").click(function(){
     	var textMessage = document.getElementById('messageText').value;
-    	var Data={"text": textMessage};
+    	var Data={"text": textMessage, "user":"", "date":""};
     	
     	console.log(textMessage);
     	
     	$.ajax({
-    	    type: "POST",
-    	    url: "http://localhost:8080/twitter-rest/message",
+    	    type: "PUT",
+    	    url: "http://localhost:8080/twitter/message",
     	    data: JSON.stringify(Data),
-    	    processData: false,
+    	    processData: true,
     	    cache: false,
     	    async: true,
     	    contentType: "application/json; charset=utf-8",
     	    dataType: "json",
     	    success: function(data){
     	    	console.log(data);
+    	    	location.reload();
     	    	},
     	    failure: function(errMsg) {
     	        alert(errMsg);
     	    }
     	});
+    });
+    
+    $("#searchButton").click(function(){
+    	var user = document.getElementById('userNameSearch').value;
+    	if(user.length > 1){
+    		window.location.replace("http://localhost:8080/twitter/user/"+user);
+    	}
     });
     
 });

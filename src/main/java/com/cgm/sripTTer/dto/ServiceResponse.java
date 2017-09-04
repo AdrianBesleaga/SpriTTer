@@ -1,4 +1,4 @@
-package com.cgm.twitter.dto;
+package com.cgm.sripTTer.dto;
 
 public class ServiceResponse {
 

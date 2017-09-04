@@ -3,30 +3,27 @@ body {
     margin: 0px;
     width: 100%;
     height: 1000px;
-    background: rgba(255, 255, 255, 1);
-    background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(47%, rgba(246, 246, 246, 1)), color-stop(100%, rgba(237, 237, 237, 1)));
-    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
-    background: -o-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
-    background: -ms-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=0);
+	background-color: #dff9ff;
 }
 p {
     margin: auto;
 }
 #registerForm,
 #loginForm,
-#messageForm {
+#messageForm,
+#searchForm {
     width: 200px;
     position: absolute;
-    border: 1px solid #9e9c9c;
+    border: 1px solid #26419c;
     padding: 10px;
     margin: 10px;
+    margin-top: 0px;
     display: none;
+    background-color: rgb(255, 255, 255);
 }
 
-#messageForm{
+#messageForm,
+#searchForm{
 	display:block;
 }
 
@@ -83,4 +80,26 @@ li a:hover:not ( .active) {
 }
 .active {
     background-color: #4CAF50;
+}
+
+textarea{
+	border: #2793dc 1px solid;
+    text-align: center;
+    margin: auto;
+    color: darkblue;
+    cursor: pointer;
+    resize: none;
+}
+
+.headerMenu{
+	margin-bottom: 10px;
+}
+
+.usersList{
+	width: 30%;
+    margin: auto;
+    border: 1px solid #3498db;
+    text-align: center;
+    font-size: medium;
+    text-transform: uppercase;
 }
