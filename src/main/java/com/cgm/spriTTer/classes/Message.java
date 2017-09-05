@@ -1,7 +1,9 @@
-package com.cgm.spriTTer.dto;
+package com.cgm.spriTTer.classes;
 
 import java.io.Serializable;
 import java.util.Collections;
+
+import com.cgm.spriTTer.builder.ArtefactBuilder;
 
 @SuppressWarnings("serial")
 public class Message implements Serializable {

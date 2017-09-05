@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.cgm.spriTTer.dto.ArtefactBuilder;
+import com.cgm.spriTTer.builder.ArtefactBuilder;
+import com.cgm.spriTTer.classes.User;
 import com.cgm.spriTTer.dto.ServiceResponse;
-import com.cgm.spriTTer.dto.User;
 
 @RestController
 public class UserController {

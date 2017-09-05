@@ -1,7 +1,8 @@
-package com.cgm.spriTTer.dto;
+package com.cgm.spriTTer.classes;
 
 import java.io.Serializable;
 
+import com.cgm.spriTTer.builder.ArtefactBuilder;
 import com.cgm.spriTTer.utils.SecurityUtils;
 
 @SuppressWarnings("serial")

@@ -1,9 +1,11 @@
-package com.cgm.spriTTer.dto;
+package com.cgm.spriTTer.builder;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.cgm.spriTTer.classes.Message;
+import com.cgm.spriTTer.classes.User;
 import com.cgm.spriTTer.utils.SecurityUtils;
 import com.cgm.spriTTer.utils.TimeUtils;
 

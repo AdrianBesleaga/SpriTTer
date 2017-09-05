@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.cgm.spriTTer.dto.ArtefactBuilder;
+import com.cgm.spriTTer.builder.ArtefactBuilder;
 
 /**
  * Handles requests for the application home page.
