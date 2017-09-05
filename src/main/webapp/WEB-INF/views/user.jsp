@@ -66,7 +66,7 @@
 		<p>Id : ${userId}</p>
 		<p>Password : ${userPassword}</p>
 
-		<c:if test="${followButton != null}">
+		<c:if test="${followButton != null && userNameText != sessionScope.userName}">
 			<button id="followButton" value="${userNameText}" class="btn">${followButton}</button>
 			<br>
 		</c:if>
