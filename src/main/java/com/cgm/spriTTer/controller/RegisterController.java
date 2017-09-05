@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cgm.sripTTer.dto.ArtefactBuilder;
-import com.cgm.sripTTer.dto.ServiceResponse;
-import com.cgm.sripTTer.dto.User;
+import com.cgm.spriTTer.dto.ArtefactBuilder;
+import com.cgm.spriTTer.dto.ServiceResponse;
+import com.cgm.spriTTer.dto.User;
 
 @RestController
 public class RegisterController {

@@ -1,4 +1,4 @@
-package com.cgm.sripTTer.dto;
+package com.cgm.spriTTer.dto;
 
 import java.util.ArrayList;
 import java.util.HashMap;

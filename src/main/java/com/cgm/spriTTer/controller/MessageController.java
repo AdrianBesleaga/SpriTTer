@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cgm.spriTTer.dto.Message;
+import com.cgm.spriTTer.dto.ServiceResponse;
 import com.cgm.spriTTer.utils.TimeUtils;
-import com.cgm.sripTTer.dto.Message;
-import com.cgm.sripTTer.dto.ServiceResponse;
 
 @RestController
 public class MessageController {
