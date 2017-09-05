@@ -8,18 +8,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cgm.sripTTer.dto.ArtefactBuilder;
+import com.cgm.spriTTer.utils.TimeUtils;
 import com.cgm.sripTTer.dto.Message;
 import com.cgm.sripTTer.dto.ServiceResponse;
 
-@RestController 
+@RestController
 public class MessageController {
 	@RequestMapping(value = "/message", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
 	public @ResponseBody ServiceResponse message(@RequestBody Message message, HttpServletRequest request) {
 
 		if (message.getText().length() > 3) {
 			new Message(message.getText(), request.getSession().getAttribute("userName").toString(),
-					ArtefactBuilder.currentTime());
+					TimeUtils.currentTime());
 		} else {
 			return new ServiceResponse("Post a longer message ! ");
 		}

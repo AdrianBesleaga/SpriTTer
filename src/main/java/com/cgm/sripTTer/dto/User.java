@@ -2,6 +2,8 @@ package com.cgm.sripTTer.dto;
 
 import java.io.Serializable;
 
+import com.cgm.spriTTer.utils.SecurityUtils;
+
 @SuppressWarnings("serial")
 public class User implements Serializable {
 	private int id;
@@ -27,7 +29,7 @@ public class User implements Serializable {
 	}
 
 	public void setPassword(String password) {
-		this.password = ArtefactBuilder.md5(password);
+		this.password = SecurityUtils.md5(password);
 	}
 
 	public String getName() {

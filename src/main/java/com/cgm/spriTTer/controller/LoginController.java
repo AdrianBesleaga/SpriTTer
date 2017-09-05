@@ -19,7 +19,7 @@ public class LoginController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
 	public @ResponseBody ServiceResponse login(@RequestBody User user, HttpServletRequest request) {
 
-		String message = "Wrong Username";
+		String message = "Wrong Login Credentials";
 
 		if (user.getName() != null && user.getPassword() != null
 				&& ArtefactBuilder.getUsers().containsKey(user.getName())) {

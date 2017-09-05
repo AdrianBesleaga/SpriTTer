@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cgm.spriTTer.utils.SessionUtils;
 import com.cgm.sripTTer.dto.ArtefactBuilder;
 import com.cgm.sripTTer.dto.ServiceResponse;
 import com.cgm.sripTTer.dto.User;
@@ -21,7 +22,7 @@ public class FollowController {
 
 		String message;
 
-		String sessionUserName = request.getSession().getAttribute("userName").toString();
+		String sessionUserName = SessionUtils.getSessionAttribute(request, "userName");
 
 		if (ArtefactBuilder.friends.containsKey(sessionUserName)) {
 			if (ArtefactBuilder.friends.get(sessionUserName).contains(user.getName())) {
