@@ -20,25 +20,28 @@ public class FollowController {
 	@RequestMapping(value = "/follow", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
 	public @ResponseBody ServiceResponse follow(@RequestBody User user, HttpServletRequest request) {
 
-		String message;
-
 		String sessionUserName = SessionUtils.getSessionAttribute(request, "userName");
 
-		if (ArtefactBuilder.friends.containsKey(sessionUserName)) {
+		if (sessionUserName != null && ArtefactBuilder.friends.containsKey(sessionUserName)) {
 			if (ArtefactBuilder.friends.get(sessionUserName).contains(user.getName())) {
 				ArtefactBuilder.friends.get(sessionUserName).remove(user.getName());
-				message = "Unfollowed ";
+				return new ServiceResponse("Unfollowed");
 			} else {
 				ArtefactBuilder.friends.get(sessionUserName).add(user.getName());
-				message = "Followed ";
+				return new ServiceResponse("Followed");
 			}
-		} else {
+
+		}
+
+		if (sessionUserName != null && ArtefactBuilder.friends.containsKey(sessionUserName) == false) {
 			ArrayList<String> friendList = new ArrayList<String>();
 			friendList.add(user.getName());
 			ArtefactBuilder.friends.put(sessionUserName, friendList);
-			message = "Followed ";
+			return new ServiceResponse("Followed");
 		}
+		
+		return new ServiceResponse("Error");
 
-		return new ServiceResponse(message + user.getName());
 	}
+
 }
