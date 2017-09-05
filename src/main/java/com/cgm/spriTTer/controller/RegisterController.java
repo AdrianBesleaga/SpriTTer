@@ -20,14 +20,12 @@ public class RegisterController {
 		String message;
 		if (ArtefactBuilder.getUsers().containsKey(user.getName())) {
 			message = "UserName already taken";
-		}
-
-		if (user.getName().length() > 3 && user.getPassword().length() > 3) {
+		}else if (user.getName().length() > 3 && user.getPassword().length() > 3) {
 			user.setId(ArtefactBuilder.id++);
 			ArtefactBuilder.addUser(user);
 			message = "Registered " + user.getName() + " with id  " + user.getId();
 		} else {
-			message = "UserName or Password too short";
+			message = "Error";
 		}
 
 		return new ServiceResponse(message);
