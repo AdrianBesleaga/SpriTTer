@@ -23,7 +23,7 @@
 
 		<c:forEach items="${userFriends}" var="friend">
 
-			<a href="user/${friend}">${friend}</a>
+			<a class="friend upper" href="user/${friend}">${friend}</a>
 
 		</c:forEach>
 		<br>
@@ -34,12 +34,12 @@
 
 			<textarea rows="4" cols="50" readonly> ${message.text} </textarea>
 			<p>
-				Posted by : <a href="user/${message.user}">${message.user}</a>
+				Posted by : <a class="upper" href="user/${message.user}">${message.user}</a>
 			</p>
 			<p>${message.date}</p>
 			
 			<c:if test="${userNameText == sessionScope.userName}">
-			<button id="deleteMessage" class="btn" value="${loop.index}">Delete Message</button>
+			<button id="deleteMessage" class="btn red" value="${loop.index}">Delete Message</button>
 			<br>
 			</c:if>
 

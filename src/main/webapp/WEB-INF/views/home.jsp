@@ -30,7 +30,7 @@
 
 				<textarea rows="4" cols="50" readonly> ${message.text} </textarea>
 				<p>
-					Posted by : <a href="user/${message.user}">${message.user}</a>
+					Posted by : <a class="upper" href="user/${message.user}">${message.user}</a>
 				</p>
 				<p>${message.date}</p>
 				<br>
@@ -44,9 +44,10 @@
 	%>
 	<h1>Welcome to SpriTTer (Spring Twitter)</h1>
 	<h2>Please login</h2>
-	<%
-		}
-	%>
+	
+	<iframe width="853" height="505" src="https://www.youtube.com/embed/SBDYYGER5iM" frameborder="0" allowfullscreen></iframe>
+	
+	<%}%>
 
 </body>
 

@@ -13,6 +13,8 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/twitter/resources/javascript/functions.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
 </head>
 <body>
 
@@ -32,7 +34,7 @@
 		<li><a id="myProfile" class="btn"
 			href="/twitter/user/<%=session.getAttribute("userName")%>">Profile</a></li>
 		<li><a id="usersLink" class="btn" href="/twitter/users">Users</a></li>
-		<li><a id="logout" class="btn" href="/twitter/logout">Logout</a></li>
+		<li><a id="logout" class="btn red" href="/twitter/logout">Logout</a></li>
 		<%
 			}
 		%>
