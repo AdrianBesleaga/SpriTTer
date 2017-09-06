@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cgm.spriTTer.builder.ArtefactBuilder;
-import com.cgm.spriTTer.classes.Message;
-import com.cgm.spriTTer.dto.JsonToJava;
+import com.cgm.spriTTer.domain.Message;
 import com.cgm.spriTTer.dto.ServiceResponse;
 import com.cgm.spriTTer.utils.SessionUtils;
 import com.cgm.spriTTer.utils.TimeUtils;
@@ -33,14 +32,14 @@ public class MessageController {
 	
 	
 	@RequestMapping(value = "/message", method = RequestMethod.DELETE, consumes = "application/json", produces = "application/json")
-	public @ResponseBody ServiceResponse deleteMessage(@RequestBody JsonToJava response, HttpServletRequest request) {
+	public @ResponseBody ServiceResponse deleteMessage(@RequestBody Message message, HttpServletRequest request) {
 
 		String sessionUserName = SessionUtils.getSessionAttribute(request, "userName");
 		
 		if (sessionUserName != null && ArtefactBuilder.messages.containsKey(sessionUserName)) {
 			
-			if(ArtefactBuilder.messages.get(sessionUserName).size() >= response.getId()) {
-				ArtefactBuilder.messages.get(sessionUserName).remove(response.getId());
+			if(ArtefactBuilder.messages.get(sessionUserName).contains(message)) {
+				ArtefactBuilder.messages.get(sessionUserName).remove(message);
 				return new ServiceResponse("Message Deleted", 200);
 			}else {
 				return new ServiceResponse("Message Not Deleted", 202);

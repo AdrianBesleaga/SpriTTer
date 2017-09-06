@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cgm.spriTTer.builder.ArtefactBuilder;
-import com.cgm.spriTTer.classes.User;
+import com.cgm.spriTTer.domain.User;
 import com.cgm.spriTTer.dto.ServiceResponse;
 import com.cgm.spriTTer.utils.SessionUtils;
 

@@ -1,4 +1,4 @@
-package com.cgm.spriTTer.classes;
+package com.cgm.spriTTer.domain;
 
 import java.io.Serializable;
 

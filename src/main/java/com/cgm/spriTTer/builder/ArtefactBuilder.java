@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.cgm.spriTTer.classes.Message;
-import com.cgm.spriTTer.classes.User;
+import com.cgm.spriTTer.domain.Message;
+import com.cgm.spriTTer.domain.User;
 import com.cgm.spriTTer.utils.SecurityUtils;
 import com.cgm.spriTTer.utils.TimeUtils;
 

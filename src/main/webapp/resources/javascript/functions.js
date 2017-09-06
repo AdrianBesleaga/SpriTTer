@@ -128,32 +128,7 @@ $(document).ready(function() {
 			}
 		});
 	});
-	$("#deleteMessage").click(function() {
-		var id = document.getElementById('deleteMessage').value;
-		var Data = {
-			"id": id
-		};
-		console.log(id);
-		$.ajax({
-			type: "DELETE",
-			url: "http://localhost:8080/twitter/message",
-			data: JSON.stringify(Data),
-			processData: true,
-			cache: false,
-			async: true,
-			contentType: "application/json; charset=utf-8",
-			dataType: "json",
-			success: function(data) {
-				console.log(data);
-				if (data.code == 200) {
-					location.reload();
-				}
-			},
-			failure: function(errMsg) {
-				alert(errMsg);
-			}
-		});
-	});
+
 	$("#searchButton").click(function() {
 		var user = document.getElementById('userNameSearch').value;
 		if (user.length > 1) {
@@ -161,3 +136,25 @@ $(document).ready(function() {
 		}
 	});
 });
+
+function deleteMessage(Data) {
+	$.ajax({
+		type: "DELETE",
+		url: "http://localhost:8080/twitter/message",
+		data: Data,
+		processData: true,
+		cache: false,
+		async: true,
+		contentType: "application/json; charset=utf-8",
+		dataType: "json",
+		success: function(data) {
+			console.log(data);
+			if (data.code == 200) {
+				location.reload();
+			}
+		},
+		failure: function(errMsg) {
+			alert(errMsg);
+		}
+	});
+}

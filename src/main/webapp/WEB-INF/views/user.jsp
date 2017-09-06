@@ -39,7 +39,7 @@
 			<p>${message.date}</p>
 			
 			<c:if test="${userNameText == sessionScope.userName}">
-			<button id="deleteMessage" class="btn red" value="${loop.index}">Delete Message</button>
+			<button value='{"text": "${message.text}" , "user": "${message.user}" , "date": "${message.date}"}' onclick="deleteMessage(this.value)" class="btn red" >Delete Message</button>
 			<br>
 			</c:if>
 
