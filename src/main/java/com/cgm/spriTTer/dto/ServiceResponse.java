@@ -7,6 +7,12 @@ public class ServiceResponse {
 		this.message = message;
 	}
 
+	public ServiceResponse(String message, int code) {
+		super();
+		this.message = message;
+		this.code = code;
+	}
+
 	private String message = "Operation Succesfull!";
 	private int code = 200;
 

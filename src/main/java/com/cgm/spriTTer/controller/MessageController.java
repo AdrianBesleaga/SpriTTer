@@ -8,8 +8,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cgm.spriTTer.builder.ArtefactBuilder;
 import com.cgm.spriTTer.classes.Message;
+import com.cgm.spriTTer.dto.GetJsonId;
 import com.cgm.spriTTer.dto.ServiceResponse;
+import com.cgm.spriTTer.utils.SessionUtils;
 import com.cgm.spriTTer.utils.TimeUtils;
 
 @RestController
@@ -21,9 +24,32 @@ public class MessageController {
 			new Message(message.getText(), request.getSession().getAttribute("userName").toString(),
 					TimeUtils.currentTime());
 		} else {
-			return new ServiceResponse("Post a longer message ! ");
+			return new ServiceResponse("Post a longer message ! ", 202);
 		}
 
-		return new ServiceResponse("Message posted : " + message.getText());
+		return new ServiceResponse(message.getText());
+	}
+	
+	
+	
+	@RequestMapping(value = "/message", method = RequestMethod.DELETE, consumes = "application/json", produces = "application/json")
+	public @ResponseBody ServiceResponse deleteMessage(@RequestBody GetJsonId response, HttpServletRequest request) {
+
+		String sessionUserName = SessionUtils.getSessionAttribute(request, "userName");
+		
+		if (sessionUserName != null && ArtefactBuilder.messages.containsKey(sessionUserName)) {
+			
+			if(ArtefactBuilder.messages.get(sessionUserName).size() >= response.getId()) {
+				ArtefactBuilder.messages.get(sessionUserName).remove(response.getId());
+				return new ServiceResponse("Message Deleted", 200);
+			}else {
+				return new ServiceResponse("Message Not Deleted", 202);
+			}
+			
+		} else {
+			return new ServiceResponse("This user has no messages ! ", 202);
+		}
+
+		
 	}
 }

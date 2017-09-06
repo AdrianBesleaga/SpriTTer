@@ -23,7 +23,7 @@
 		<button id="messageButton" class="btn">Post</button>
 	</div>
 
-
+<div class="messages">
 	<c:forEach items="${messageList}" var="map">
 		<p>
 			<c:forEach items="${map.value}" var="message">
@@ -38,6 +38,7 @@
 			</c:forEach>
 		</p>
 	</c:forEach>
+	</div>
 	<%
 		} else {
 	%>

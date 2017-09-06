@@ -30,14 +30,18 @@
 
 		<h3>Messages</h3>
 
-		<c:forEach items="${userMessages}" var="message">
+		<c:forEach items="${userMessages}" var="message" varStatus="loop">
 
 			<textarea rows="4" cols="50" readonly> ${message.text} </textarea>
 			<p>
 				Posted by : <a href="user/${message.user}">${message.user}</a>
 			</p>
 			<p>${message.date}</p>
+			
+			<c:if test="${userNameText == sessionScope.userName}">
+			<button id="deleteMessage" class="btn" value="${loop.index}">Delete Message</button>
 			<br>
+			</c:if>
 
 		</c:forEach>
 
