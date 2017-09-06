@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cgm.spriTTer.builder.ArtefactBuilder;
 import com.cgm.spriTTer.classes.Message;
-import com.cgm.spriTTer.dto.GetJsonId;
+import com.cgm.spriTTer.dto.JsonToJava;
 import com.cgm.spriTTer.dto.ServiceResponse;
 import com.cgm.spriTTer.utils.SessionUtils;
 import com.cgm.spriTTer.utils.TimeUtils;
@@ -33,7 +33,7 @@ public class MessageController {
 	
 	
 	@RequestMapping(value = "/message", method = RequestMethod.DELETE, consumes = "application/json", produces = "application/json")
-	public @ResponseBody ServiceResponse deleteMessage(@RequestBody GetJsonId response, HttpServletRequest request) {
+	public @ResponseBody ServiceResponse deleteMessage(@RequestBody JsonToJava response, HttpServletRequest request) {
 
 		String sessionUserName = SessionUtils.getSessionAttribute(request, "userName");
 		

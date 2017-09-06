@@ -1,6 +1,6 @@
 package com.cgm.spriTTer.dto;
 
-public class GetJsonId {
+public class JsonToJava {
 	private int id;
 
 	public int getId() {
