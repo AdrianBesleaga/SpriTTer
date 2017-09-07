@@ -16,9 +16,10 @@ import com.cgm.spriTTer.domain.User;
 import com.cgm.spriTTer.dto.ServiceResponse;
 
 @RestController
+@RequestMapping(value = "/user")
 public class UserController {
 
-	@RequestMapping(value = "/user", method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	protected ModelAndView getUserPage() throws Exception {
 
 		ModelAndView model;
@@ -28,17 +29,7 @@ public class UserController {
 		return model;
 	}
 
-	@RequestMapping(value = "/users", method = RequestMethod.GET)
-	protected ModelAndView getUsers() throws Exception {
-
-		ModelAndView model;
-
-		model = new ModelAndView("users", "usersList", ArtefactBuilder.users);
-
-		return model;
-	}
-
-	@RequestMapping(value = "/user/{name}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{name}", method = RequestMethod.GET)
 	protected ModelAndView getUser(@PathVariable String name, HttpServletRequest request) throws Exception {
 		ModelAndView model;
 
@@ -67,18 +58,17 @@ public class UserController {
 		return model;
 	}
 
-	@RequestMapping(value = "/user", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
+	@RequestMapping(method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
 	public @ResponseBody ServiceResponse createArtist(@RequestBody User user) {
 		return new ServiceResponse(user.getName());
 	}
 
-	@RequestMapping(value = "/user", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
+	@RequestMapping(method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
 	public ServiceResponse updateUser(User user) {
-		System.out.println("Called update User service!" + user.getName());
 		return new ServiceResponse(user.getName());
 	}
 
-	@RequestMapping(value = "/user/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ServiceResponse deleteUser(@RequestHeader("token") String token, @PathVariable Long id) {
 		System.out.println("Called delete User (" + id + ") service with token: " + token + " !");
 		return new ServiceResponse("deleted : " + id);

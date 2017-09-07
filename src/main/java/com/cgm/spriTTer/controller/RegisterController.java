@@ -13,9 +13,10 @@ import com.cgm.spriTTer.domain.User;
 import com.cgm.spriTTer.dto.ServiceResponse;
 
 @RestController
+@RequestMapping(value = "/register")
 public class RegisterController {
 
-	@RequestMapping(value = "/register", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
+	@RequestMapping(method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
 	public @ResponseBody ServiceResponse register(@RequestBody User user, HttpServletRequest request) {
 		String message;
 		if (ArtefactBuilder.getUsers().containsKey(user.getName())) {

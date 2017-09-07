@@ -16,8 +16,9 @@ import com.cgm.spriTTer.dto.ServiceResponse;
 import com.cgm.spriTTer.utils.SessionUtils;
 
 @RestController
+@RequestMapping(value = "/follow")
 public class FollowController {
-	@RequestMapping(value = "/follow", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
+	@RequestMapping(method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
 	public @ResponseBody ServiceResponse follow(@RequestBody User user, HttpServletRequest request) {
 
 		String sessionUserName = SessionUtils.getSessionAttribute(request, "userName");

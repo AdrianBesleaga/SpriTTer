@@ -21,6 +21,7 @@ $(document).ready(function() {
 	function hideAll() {
 		$('#registerForm').hide();
 		$('#loginForm').hide();
+		$('#searchForm').hide();
 	}
 	$("#registerButton").click(function() {
 		var userPassword = document.getElementById('userPassword').value;

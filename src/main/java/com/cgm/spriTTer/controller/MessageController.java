@@ -15,8 +15,9 @@ import com.cgm.spriTTer.utils.SessionUtils;
 import com.cgm.spriTTer.utils.TimeUtils;
 
 @RestController
+@RequestMapping(value = "/message")
 public class MessageController {
-	@RequestMapping(value = "/message", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
+	@RequestMapping(method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
 	public @ResponseBody ServiceResponse message(@RequestBody Message message, HttpServletRequest request) {
 
 		if (message.getText().length() > 3) {
@@ -31,7 +32,7 @@ public class MessageController {
 	
 	
 	
-	@RequestMapping(value = "/message", method = RequestMethod.DELETE, consumes = "application/json", produces = "application/json")
+	@RequestMapping(method = RequestMethod.DELETE, consumes = "application/json", produces = "application/json")
 	public @ResponseBody ServiceResponse deleteMessage(@RequestBody Message message, HttpServletRequest request) {
 
 		String sessionUserName = SessionUtils.getSessionAttribute(request, "userName");

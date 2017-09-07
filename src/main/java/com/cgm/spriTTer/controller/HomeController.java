@@ -8,14 +8,25 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.cgm.spriTTer.builder.ArtefactBuilder;
 
-/**
- * Handles requests for the application home page.
- */
 @Controller
+@RequestMapping(value = "/")
 public class HomeController {
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	protected @ResponseBody ModelAndView home() {
+		ArtefactBuilder.firstUsers();
+		ArtefactBuilder.firstMessages();
+
+		ModelAndView model;
+
+		model = new ModelAndView("/home");
+		model.addObject("messageList", ArtefactBuilder.messages);
+
+		return model;
+	}
+	
+	@RequestMapping(value="home", method = RequestMethod.GET)
+	protected @ResponseBody ModelAndView sameHome() {
 		ArtefactBuilder.firstUsers();
 		ArtefactBuilder.firstMessages();
 
