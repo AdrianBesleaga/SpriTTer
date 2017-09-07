@@ -121,6 +121,8 @@ $(document).ready(function() {
 				console.log(data);
 				if (data.code == 200) {
 					location.reload();
+				}else{
+					$("#messageFormMessage").text(data.message);
 				}
 			},
 			failure: function(errMsg) {
